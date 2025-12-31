@@ -1,4 +1,5 @@
 import os
+import argparse
 
 def combine_srt_chunks(chunk_dir, output_file):
     # Get all chunk files, sorted
@@ -25,4 +26,9 @@ def combine_srt_chunks(chunk_dir, output_file):
     print(f"Combined {len(files)} chunks into {output_file}")
 
 if __name__ == "__main__":
-    combine_srt_chunks("translated_chunks", "ja.srt")
+    parser = argparse.ArgumentParser(description='Combine SRT chunks into a single file.')
+    parser.add_argument('--chunk_dir', default='99_temp/translated_chunks', help='Directory containing chunk files')
+    parser.add_argument('--output_file', default='03_output/ja.srt', help='Output SRT file path')
+    
+    args = parser.parse_args()
+    combine_srt_chunks(args.chunk_dir, args.output_file)
