@@ -1,0 +1,12 @@
+.DS_Store
+__pycache__/
+*.pyc
+
+# Temporary directories
+99_temp/
+
+# Ignore actual input/output files but keep the directories
+02_input/*
+!02_input/.gitkeep
+03_output/*
+!03_output/.gitkeep
